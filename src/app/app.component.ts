@@ -24,21 +24,20 @@ export class AppComponent {
  
 
   constructor(public store: Store<RootState>) {
+    // // subscribe to account
+    // this.account$.subscribe(account=> {
+    //   this.account = account;
+    // })
 
-    // subscribe to account
-    this.account$.subscribe(account=> {
-      this.account = account;
-    })
+    // // subscribe to account name only
+    // this.accountName$ .subscribe(name=> {
+    //   this.name = name;
+    // })
 
-    // subscribe to account name only
-    this.accountName$ .subscribe(name=> {
-      this.name = name;
-    })
-
-    // subscribe to account age only
-    this.accountAge$ .subscribe(age=> {
-      this.age = age;
-    })
+    // // subscribe to account age only
+    // this.accountAge$ .subscribe(age=> {
+    //   this.age = age;
+    // })
   }
 
   setAccount() {

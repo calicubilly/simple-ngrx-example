@@ -6,14 +6,23 @@
 
 <button (click)="deleteAccount()">Delete Account</button><br><br><br>
 
-ACCOUNT SUBSCRIPTION
+<!-- ACCOUNT SUBSCRIPTION
 <p>Account: {{account | json}}</p><br><br><br>
 
 NAME ONLY SUBSCRIPTION
 <p>Name: {{name}}</p><br><br><br>
 
 AGE ONLY SUBSCRIPTION
-<p>Age: {{age}}</p><br><br><br>
+<p>Age: {{age}}</p><br><br><br> -->
+
+ACCOUNT SUBSCRIPTION
+<p>Account: {{account$ | async | json}}</p><br><br><br>
+
+NAME ONLY SUBSCRIPTION
+<p>Name: {{accountName$ | async}}</p><br><br><br>
+
+AGE ONLY SUBSCRIPTION
+<p>Age: {{accountAge$ | async }}</p><br><br><br>
 
 
 
