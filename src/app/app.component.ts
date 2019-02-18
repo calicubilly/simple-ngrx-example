@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { select, Store } from "@ngrx/store";
 import { RootState, selectAccount, selectAccountName, selectAccountAge} from '../store/index';
 import { Account } from '../store/account/account.model';
+import {  Country } from '../store/country/country.model';
 import { SetAccount, DeleteAccount } from '../store/account/account.actions';
+import { initCountry, DeleteCountry } from '../store/country/country.actions';
+import { ApiService } from '../service/api.service';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +26,7 @@ export class AppComponent {
   ageInput: number
  
 
-  constructor(public store: Store<RootState>) {
+  constructor(public store: Store<RootState>, private apiService: ApiService) {
     // // subscribe to account
     // this.account$.subscribe(account=> {
     //   this.account = account;
@@ -38,6 +41,13 @@ export class AppComponent {
     // this.accountAge$ .subscribe(age=> {
     //   this.age = age;
     // })
+
+    this.getCountries();
+  }
+
+   async getCountries() {
+    let result = await this.apiService.getCountries().toPromise();
+    this.store.dispatch(new initCountry({countries: result}));
   }
 
   setAccount() {
